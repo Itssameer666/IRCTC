@@ -1,0 +1,801 @@
+/* ==========================================================================
+   RailNova - Advanced Railway Ticket Booking System Design System
+   ========================================================================== */
+
+:root {
+    --rn-primary: #0052d4;
+    --rn-primary-hover: #003db3;
+    --rn-primary-light: #e8f0fe;
+    --rn-gradient-primary: linear-gradient(135deg, #0052d4 0%, #4364f7 50%, #6fb1fc 100%);
+    --rn-gradient-hero: linear-gradient(135deg, #0b132b 0%, #1c2541 60%, #3a506b 100%);
+    --rn-gradient-accent: linear-gradient(135deg, #ff6b35 0%, #f78c42 100%);
+    --rn-accent: #ff6b35;
+    --rn-dark: #0b132b;
+    --rn-dark-surface: #111a33;
+    --rn-text-main: #1e293b;
+    --rn-text-muted: #64748b;
+    --rn-bg-light: #f8fafc;
+    --rn-card-bg: #ffffff;
+    --rn-border: #e2e8f0;
+    --rn-success: #10b981;
+    --rn-warning: #f59e0b;
+    --rn-danger: #ef4444;
+    --rn-info: #06b6d4;
+    --rn-shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+    --rn-shadow-md: 0 4px 20px -2px rgba(0,0,0,0.08);
+    --rn-shadow-lg: 0 10px 30px -4px rgba(0,0,0,0.12);
+    --rn-shadow-glow: 0 0 25px rgba(67, 100, 247, 0.35);
+    --rn-radius-sm: 8px;
+    --rn-radius-md: 14px;
+    --rn-radius-lg: 20px;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--rn-text-main);
+    background-color: var(--rn-bg-light);
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+.rn-navbar {
+    background: rgba(11, 19, 43, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+    padding: 12px 0;
+}
+
+.rn-navbar .nav-link {
+    color: #cbd5e1 !important;
+    font-weight: 500;
+    padding: 8px 16px !important;
+    border-radius: var(--rn-radius-sm);
+    transition: all 0.2s ease;
+}
+
+.rn-navbar .nav-link:hover,
+.rn-navbar .nav-link.active {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.rn-brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #ffffff !important;
+    letter-spacing: -0.5px;
+    text-decoration: none;
+}
+
+.rn-brand-logo svg {
+    filter: drop-shadow(0 2px 8px rgba(67, 100, 247, 0.6));
+}
+
+.rn-brand-highlight {
+    background: var(--rn-gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Role Badges */
+.badge-role-admin {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+}
+.badge-role-staff {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+}
+.badge-role-passenger {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.rn-hero-section {
+    background: var(--rn-gradient-hero);
+    color: #ffffff;
+    padding: 70px 0 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.rn-hero-section::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(67, 100, 247, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.rn-hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.18) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.rn-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #93c5fd;
+    margin-bottom: 20px;
+}
+
+.rn-hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    margin-bottom: 18px;
+}
+
+.rn-hero-subtitle {
+    font-size: 1.15rem;
+    color: #94a3b8;
+    max-width: 600px;
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+/* Quick Demo Role Bar */
+.rn-demo-bar {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--rn-radius-md);
+    padding: 12px 18px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+/* Search Card */
+.rn-search-card {
+    background: #ffffff;
+    border-radius: var(--rn-radius-lg);
+    box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.25);
+    padding: 30px;
+    color: var(--rn-text-main);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    position: relative;
+    z-index: 10;
+}
+
+.rn-search-header-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 22px;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 12px;
+}
+
+.rn-tab-btn {
+    border: none;
+    background: transparent;
+    padding: 8px 18px;
+    font-weight: 600;
+    color: var(--rn-text-muted);
+    border-radius: var(--rn-radius-sm);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.rn-tab-btn.active {
+    background: var(--rn-primary-light);
+    color: var(--rn-primary);
+}
+
+.rn-swap-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    border: 1px solid var(--rn-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 0 auto;
+}
+
+.rn-swap-btn:hover {
+    background: var(--rn-primary);
+    color: white;
+    transform: rotate(180deg);
+}
+
+/* Input Fields */
+.rn-form-control {
+    border: 1.5px solid #e2e8f0;
+    border-radius: var(--rn-radius-sm);
+    padding: 12px 16px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.rn-form-control:focus {
+    border-color: var(--rn-primary);
+    box-shadow: 0 0 0 3px rgba(67, 100, 247, 0.15);
+}
+
+.rn-btn-primary {
+    background: var(--rn-gradient-primary);
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 13px 24px;
+    border-radius: var(--rn-radius-sm);
+    box-shadow: var(--rn-shadow-glow);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.rn-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(67, 100, 247, 0.45);
+    color: white;
+}
+
+.rn-btn-accent {
+    background: var(--rn-gradient-accent);
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 13px 24px;
+    border-radius: var(--rn-radius-sm);
+    transition: all 0.2s ease;
+}
+
+.rn-btn-accent:hover {
+    transform: translateY(-1px);
+    color: white;
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.35);
+}
+
+/* ==========================================================================
+   Train Results Section
+   ========================================================================== */
+.rn-filter-card {
+    background: #ffffff;
+    border-radius: var(--rn-radius-md);
+    border: 1px solid var(--rn-border);
+    padding: 24px;
+    box-shadow: var(--rn-shadow-sm);
+}
+
+.rn-filter-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--rn-text-muted);
+    margin-bottom: 12px;
+}
+
+.rn-train-card {
+    background: #ffffff;
+    border-radius: var(--rn-radius-md);
+    border: 1px solid var(--rn-border);
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: var(--rn-shadow-sm);
+    transition: all 0.25s ease;
+}
+
+.rn-train-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: var(--rn-shadow-md);
+    transform: translateY(-2px);
+}
+
+.rn-train-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+}
+
+.rn-badge-vande-bharat {
+    background: #fff1f2;
+    color: #e11d48;
+    border: 1px solid #ffe4e6;
+}
+
+.rn-badge-rajdhani {
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+}
+
+.rn-badge-shatabdi {
+    background: #f0fdf4;
+    color: #15803d;
+    border: 1px solid #dcfce7;
+}
+
+.rn-badge-superfast {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #dbeafe;
+}
+
+/* Route Timeline */
+.rn-timeline-track {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 18px 0;
+    position: relative;
+}
+
+.rn-time-text {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--rn-text-main);
+    line-height: 1;
+}
+
+.rn-station-code {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--rn-text-muted);
+}
+
+.rn-duration-bar {
+    flex-grow: 1;
+    margin: 0 25px;
+    text-align: center;
+    position: relative;
+}
+
+.rn-duration-line {
+    height: 2px;
+    background: #cbd5e1;
+    position: relative;
+    margin: 8px 0;
+}
+
+.rn-duration-line::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--rn-primary);
+}
+
+.rn-duration-line::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--rn-accent);
+}
+
+/* Class Fare Selection Boxes */
+.rn-class-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.rn-class-box {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: var(--rn-radius-sm);
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.rn-class-box:hover {
+    border-color: var(--rn-primary);
+    background: #f0f7ff;
+}
+
+.rn-class-box.selected {
+    border-color: var(--rn-primary);
+    background: var(--rn-primary-light);
+    box-shadow: 0 0 0 2px rgba(67, 100, 247, 0.2);
+}
+
+.rn-class-code {
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--rn-text-main);
+}
+
+.rn-class-fare {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--rn-primary);
+}
+
+.rn-class-avail {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--rn-success);
+}
+
+.rn-class-avail.wl {
+    color: var(--rn-warning);
+}
+
+/* ==========================================================================
+   Realistic Coach & Seat Visual System
+   ========================================================================== */
+.rn-coach-container {
+    background: #f1f5f9;
+    border: 2px solid #cbd5e1;
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+    max-width: 880px;
+    margin: 0 auto;
+}
+
+.rn-coach-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1.5px dashed #94a3b8;
+}
+
+.rn-seat-legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.rn-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.rn-legend-box {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+}
+
+.rn-legend-avail {
+    background: #ffffff;
+    border: 1.5px solid #10b981;
+}
+
+.rn-legend-selected {
+    background: var(--rn-primary);
+    border: 1.5px solid var(--rn-primary);
+    color: white;
+}
+
+.rn-legend-booked {
+    background: #e2e8f0;
+    border: 1.5px solid #94a3b8;
+}
+
+/* Coach Berth Grid */
+.rn-seat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) 30px repeat(2, 1fr);
+    gap: 10px;
+    align-items: center;
+}
+
+.rn-seat-item {
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 10px 6px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    user-select: none;
+    position: relative;
+}
+
+.rn-seat-item:hover:not(.booked) {
+    border-color: var(--rn-primary);
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.rn-seat-item.selected {
+    background: var(--rn-primary);
+    color: #ffffff;
+    border-color: var(--rn-primary);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(67, 100, 247, 0.35);
+}
+
+.rn-seat-item.booked {
+    background: #e2e8f0;
+    border-color: #cbd5e1;
+    color: #94a3b8;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.rn-seat-number {
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: block;
+}
+
+.rn-seat-type {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 2px;
+}
+
+.rn-aisle {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-size: 0.7rem;
+    writing-mode: vertical-lr;
+    letter-spacing: 3px;
+    user-select: none;
+}
+
+/* ==========================================================================
+   Sandbox Payment Modal
+   ========================================================================== */
+.rn-sandbox-badge {
+    background: #fef3c7;
+    color: #b45309;
+    border: 1px solid #fde68a;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.rn-pay-tab {
+    padding: 14px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: var(--rn-radius-sm);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.rn-pay-tab.active {
+    border-color: var(--rn-primary);
+    background: var(--rn-primary-light);
+    color: var(--rn-primary);
+}
+
+.rn-qr-box {
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    background: #ffffff;
+}
+
+/* ==========================================================================
+   Printable E-Ticket Styles
+   ========================================================================== */
+.rn-ticket-card {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: var(--rn-shadow-md);
+    position: relative;
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.rn-ticket-header {
+    border-bottom: 2px solid #0b132b;
+    padding-bottom: 18px;
+    margin-bottom: 22px;
+}
+
+.rn-pnr-banner {
+    background: var(--rn-gradient-hero);
+    color: white;
+    padding: 14px 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.rn-pnr-digits {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #93c5fd;
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #printableTicket, #printableTicket * {
+        visibility: visible;
+    }
+    #printableTicket {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 20px;
+        border: none;
+        box-shadow: none;
+    }
+    .no-print {
+        display: none !important;
+    }
+}
+
+/* ==========================================================================
+   Dashboard Components
+   ========================================================================== */
+.rn-stats-card {
+    background: #ffffff;
+    border-radius: var(--rn-radius-md);
+    border: 1px solid var(--rn-border);
+    padding: 22px;
+    box-shadow: var(--rn-shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    transition: all 0.2s ease;
+}
+
+.rn-stats-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--rn-shadow-md);
+}
+
+.rn-stats-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.rn-icon-blue { background: #e0f2fe; color: #0284c7; }
+.rn-icon-green { background: #dcfce7; color: #16a34a; }
+.rn-icon-amber { background: #fef3c7; color: #d97706; }
+.rn-icon-purple { background: #f3e8ff; color: #9333ea; }
+.rn-icon-red { background: #fee2e2; color: #dc2626; }
+
+.rn-stats-val {
+    font-size: 1.7rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--rn-text-main);
+}
+
+.rn-stats-lbl {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--rn-text-muted);
+}
+
+/* Notification Badge */
+.rn-bell-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: var(--rn-accent);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Footer */
+.rn-footer {
+    background: #0b132b;
+    color: #94a3b8;
+    padding: 60px 0 25px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.rn-footer a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.rn-footer a:hover {
+    color: #ffffff;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+}
