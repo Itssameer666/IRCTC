@@ -61,7 +61,7 @@ If you don't already have a cloud MySQL database, you can create one in 2 minute
 ### Step 1: Push Code to GitHub
 Ensure your repository is pushed to your GitHub account:
 ```bash
-git remote add origin https://github.com/YOUR_USERNAME/railnova-railway-system.git
+git remote add origin https://github.com/Itssameer666/IRCTC.git
 git branch -M main
 git push -u origin main
 ```
@@ -69,7 +69,7 @@ git push -u origin main
 ### Step 2: Create a Web Service on Render
 1. Log in to [Render.com](https://dashboard.render.com/).
 2. Click **New +** -> **Web Service**.
-3. Connect your GitHub repository `railnova-railway-system`.
+3. Connect your GitHub repository `Itssameer666/IRCTC`.
 4. Configure the service:
    - **Name:** `railnova-platform`
    - **Region:** Choose nearest (e.g. *Frankfurt* or *Singapore* or *Oregon*)

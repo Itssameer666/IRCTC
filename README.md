@@ -105,8 +105,8 @@ IRCTC/
 
 ### 1. Clone & Enter Project
 ```bash
-git clone https://github.com/YOUR_USERNAME/railnova-railway-system.git
-cd railnova-railway-system
+git clone https://github.com/Itssameer666/IRCTC.git
+cd IRCTC
 ```
 
 ### 2. Run the Application
